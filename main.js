@@ -4,14 +4,13 @@ const FS = require("fs"),
 	HTTPS = require("https"),
 	PATH = require("path");
 
-const HTTP=require("http");
 const MIME_TYPES = require("mime-types");
 
 const FILE_PATH = ((prospectivePath) => {
 		return (
 			(prospectivePath.length && FS.lstatSync(prospectivePath).isDirectory())
 		)
-			? process.argv[2]
+			? prospectivePath
 			: process.cwd();
 	})(
 		((process.argv.length >= 3 && typeof process.argv[2] === "string")
